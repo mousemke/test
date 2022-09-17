@@ -23,6 +23,13 @@ export default {
     globals(),
     babel({ babelHelpers: "bundled", extensions: [".ts", ".tsx"] }),
     terser(),
-    html({ title: "A simple enough test" })
+    html({
+      attributes: {
+        link: {
+          href: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        }
+      },
+      title: "A simple enough test"
+    })
   ]
 };
