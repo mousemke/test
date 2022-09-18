@@ -14,15 +14,19 @@ export const getBlocks = async (
   );
 
   if (response) {
-    const res = await response.json();
+    try {
+      const res = await response.json();
 
-    if (res.error) {
-      setError(res.error);
-    } else {
-      const blocks = (res.data as Blocks).filter(
-        (b) => b.metadata.blockPricingStrategy.name === "simple"
-      );
-      setBlocks(blocks);
+      if (res.error) {
+        setError(res.error);
+      } else {
+        const blocks = (res.data as Blocks).filter(
+          (b) => b.metadata.blockPricingStrategy.name === "simple"
+        );
+        setBlocks(blocks);
+      }
+    } catch (e: any) {
+      setError(e.message as string);
     }
   }
 };

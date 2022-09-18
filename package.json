@@ -22,7 +22,7 @@
     "prettier": "prettier \"./**/*.js\" \"./**/*.mjs\" \"./**/*.ts\" \"./**/*.tsx\" \"./**/*.md\" --write",
     "start": "npm run build && node proxy.mjs",
     "test": "npm run prettier && npm run test:lint && npm run test:types && npm run test:unit",
-    "test:unit": "jest && npm run test:unit:printCoverageLink",
+    "test:unit": "jest || npm run test:unit:printCoverageLink",
     "test:unit:printCoverageLink": "node ./printCoverageReportLink.js",
     "test:lint": "eslint -c .eslint.js --ext .ts --ext .tsx --ext .js --ext .mjs ./",
     "test:types": "tsc --noEmit"

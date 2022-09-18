@@ -1,5 +1,5 @@
 /**
- *
+ * The block object, as retrieved by the api
  */
 export type Block = {
   createdAt: string;
@@ -38,10 +38,13 @@ export type Block = {
 };
 
 /**
- *
+ * An array of blocks
  */
 export type Blocks = Block[];
 
+/**
+ * The shopping cart. An object of blocks entered by id to preserve uniqueness
+ */
 export interface ItemsInCart {
   [id: string]: Block;
 }

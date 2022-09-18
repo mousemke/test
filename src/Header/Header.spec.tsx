@@ -1,12 +1,13 @@
-// import React from "react";
-// import { render } from "@testing-library/react";
+import React from "react";
+import { render } from "@testing-library/react";
 
-// import App from "./App";
+import Header from "./Header";
 
-// describe("test test", () => {
-//   it("should", () => {
-//     const { queryByText } = render(<App />);
+describe("Header", () => {
+  it("should display the remaining credits", () => {
+    const { queryByText } = render(<Header remainingCredits={20} />);
 
-//     expect(queryByText("hi!")).not.toBe(null);
-//   });
-// });
+    expect(queryByText("Credits:")).not.toBe(null);
+    expect(queryByText("20")).not.toBe(null);
+  });
+});

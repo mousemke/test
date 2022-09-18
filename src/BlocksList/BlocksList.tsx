@@ -6,7 +6,7 @@ import useStyles from "./BlocksList.styles";
 import type { BlocksListProps } from "./BlocksList.types";
 
 /**
- *
+ * A list of all available blocks
  */
 const BlocksList = (props: BlocksListProps): JSX.Element => {
   const { blocks, itemsInCart, setItemsInCart } = props;

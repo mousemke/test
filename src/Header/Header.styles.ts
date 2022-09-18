@@ -14,7 +14,11 @@ const useStyles = createUseStyles(
       display: "flex",
       height: 65,
       justifyContent: "flex-end",
-      padding: 20
+      padding: 20,
+
+      "& > span:first-child": {
+        marginRight: 10
+      }
     }
   },
   {
