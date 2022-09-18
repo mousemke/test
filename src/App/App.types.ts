@@ -25,9 +25,9 @@ export type Block = {
     blockThumbnailUrl: string;
     pricingStrategy: {
       type: string;
-      credits: number
+      credits: number;
     };
-  }
+  };
   name: string;
   provider: string;
   tags: string[];
@@ -43,5 +43,5 @@ export type Block = {
 export type Blocks = Block[];
 
 export interface ItemsInCart {
-  [id: string]: Block
-};
+  [id: string]: Block;
+}

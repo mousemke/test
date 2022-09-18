@@ -1,1 +1,3 @@
-export { getBlocks } from "./api";
+import { getBlocks } from "./api";
+
+export default { getBlocks };

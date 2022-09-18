@@ -17,7 +17,7 @@ const Header = (props: HeaderProps): JSX.Element => {
 
   return (
     <Box className={classes.header}>
-      <Typography component="span">Credits:{" "}</Typography>
+      <Typography component="span">Credits: </Typography>
       <Typography component="span" className={classes.creditsRemaining}>
         {remainingCredits}
       </Typography>

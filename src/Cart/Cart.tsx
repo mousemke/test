@@ -17,9 +17,12 @@ const Cart = (props: CartProps): JSX.Element => {
   const classes = useStyles();
 
   const itemsInCartArr = Object.values(itemsInCart);
-  const totalCredits = itemsInCartArr.reduce<number>((total, block) => total + block.metadata.pricingStrategy.credits, 0);
+  const totalCredits = itemsInCartArr.reduce<number>(
+    (total, block) => total + block.metadata.pricingStrategy.credits,
+    0
+  );
 
-  const notEnoughCredits = (remainingCredits - totalCredits) < 0;
+  const notEnoughCredits = remainingCredits - totalCredits < 0;
 
   return (
     <Box className={classes.cartWrapper}>
@@ -28,13 +31,11 @@ const Cart = (props: CartProps): JSX.Element => {
       </Typography>
       <div className={classes.blocksList}>
         {itemsInCartArr.map((block, i) => {
-          const credits = block.metadata.pricingStrategy.credits;
+          const { credits } = block.metadata.pricingStrategy;
 
           return (
             <div key={i} className={classes.block}>
-              <Typography>
-                {block.displayName}
-              </Typography>
+              <Typography>{block.displayName}</Typography>
               <Typography className={classes.blockCredits}>
                 {credits} credit{credits === 1 ? "" : "s"}
               </Typography>
@@ -44,15 +45,25 @@ const Cart = (props: CartProps): JSX.Element => {
       </div>
       <div className={classes.footer}>
         <div className={classes.totalBlockCreditsWrapper}>
-          <Typography component="span" color={notEnoughCredits ? "error" : undefined}>
+          <Typography
+            component="span"
+            color={notEnoughCredits ? "error" : undefined}
+          >
             Total
           </Typography>
-          <Typography component="span" color={notEnoughCredits ? "error" : undefined} className={classes.totalBlockCredits}>
+          <Typography
+            component="span"
+            color={notEnoughCredits ? "error" : undefined}
+            className={classes.totalBlockCredits}
+          >
             {totalCredits} credits
           </Typography>
         </div>
         <Button
-          className={clsx(classes.buyNowButton, notEnoughCredits && classes.notEnoughCredits)}
+          className={clsx(
+            classes.buyNowButton,
+            notEnoughCredits && classes.notEnoughCredits
+          )}
           color={notEnoughCredits ? "error" : "primary"}
           onClick={() => buyBlocks(totalCredits)}
           variant={notEnoughCredits ? "outlined" : "contained"}

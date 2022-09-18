@@ -49,7 +49,7 @@ const useStyles = createUseStyles(
     },
     totalBlockCredits: {
       "span&": {
-        fontWeight: 700,
+        fontWeight: 700
       }
     },
     totalBlockCreditsWrapper: {

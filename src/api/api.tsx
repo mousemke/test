@@ -19,8 +19,12 @@ export const getBlocks = async (
     if (res.error) {
       setError(res.error);
     } else {
-      const blocks = (res.data as Blocks).filter(b => b.metadata.blockPricingStrategy.name === "simple");
+      const blocks = (res.data as Blocks).filter(
+        (b) => b.metadata.blockPricingStrategy.name === "simple"
+      );
       setBlocks(blocks);
     }
   }
 };
+
+export default { getBlocks };

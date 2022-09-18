@@ -19,12 +19,12 @@
   "scripts": {
     "build": "rollup --config rollup.config.ts",
     "prepare": "husky install",
-    "prettier": "prettier \"./**/*.js\" \"./**/*.ts\" \"./**/*.tsx\" \"./**/*.md\" \"./**/*.html\" --write",
-    "start": "npm run build && node proxy.js",
+    "prettier": "prettier \"./**/*.js\" \"./**/*.mjs\" \"./**/*.ts\" \"./**/*.tsx\" \"./**/*.md\" --write",
+    "start": "npm run build && node proxy.mjs",
     "test": "npm run prettier && npm run test:lint && npm run test:types && npm run test:unit",
     "test:unit": "jest && npm run test:unit:printCoverageLink",
     "test:unit:printCoverageLink": "node ./printCoverageReportLink.js",
-    "test:lint": "eslint -c .eslint.js --ext .ts --ext .tsx --ext .js ./",
+    "test:lint": "eslint -c .eslint.js --ext .ts --ext .tsx --ext .js --ext .mjs ./",
     "test:types": "tsc --noEmit"
   },
   "dependencies": {
@@ -39,8 +39,11 @@
     "@testing-library/react": "^13.4.0",
     "@types/jest": "29.0.0",
     "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "clsx": "^1.2.1",
     "express": "^4.18.1",
     "react": "^18.2.0",
+    "react-jss": "^10.9.2",
     "request": "^2.88.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-terser": "^7.0.2"
@@ -68,7 +71,6 @@
     "jest-environment-jsdom": "29.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
-    "react-jss": "^10.9.2",
     "rollup": "2.79.0",
     "typescript": "4.8.2"
   }

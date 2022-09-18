@@ -16,7 +16,7 @@ const Block = (props: BlockProps): JSX.Element => {
 
   const classes = useStyles();
 
-  const credits = metadata.blockPricingStrategy.credits;
+  const { credits } = metadata.blockPricingStrategy;
 
   return (
     <Box className={classes.blockWrapper}>
@@ -31,7 +31,7 @@ const Block = (props: BlockProps): JSX.Element => {
         onClick={() => setItemsInCart(block, added)}
         variant={added ? "outlined" : "contained"}
       >
-        {added ? "Remove" : "Add to Cart" }
+        {added ? "Remove" : "Add to Cart"}
       </Button>
     </Box>
   );

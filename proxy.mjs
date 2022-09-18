@@ -1,9 +1,13 @@
 /**
  * Circumvents the endpoint cors issue
  */
-const express = require("express");
-const request = require("request");
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
+import express from "express";
+import request from "request";
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 
 const app = express();
 
@@ -15,9 +19,10 @@ app.use((req, res, next) => {
 app.get("/blocks", (req, res) => {
   request(
     { url: "https://api.up42.com/marketplace/blocks" },
+    // eslint-disable-next-line consistent-return
     (error, response, body) => {
       if (error || response.statusCode !== 200) {
-        return res.status(500).json({ type: "error", message: err.message });
+        return res.status(500).json({ type: "error", message: error.message });
       }
 
       res.json(JSON.parse(body));
@@ -25,7 +30,8 @@ app.get("/blocks", (req, res) => {
   );
 });
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(dirname, "dist")));
 
 const PORT = process.env.PORT || 3000;
+// eslint-disable-next-line no-console
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

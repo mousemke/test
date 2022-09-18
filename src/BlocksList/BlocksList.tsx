@@ -15,7 +15,14 @@ const BlocksList = (props: BlocksListProps): JSX.Element => {
 
   return (
     <div className={classes.blocksListWrapper}>
-      {blocks.map((block, i) => (<Block added={Boolean(itemsInCart[block.id])} key={i} block={block} setItemsInCart={setItemsInCart} />))}
+      {blocks.map((block, i) => (
+        <Block
+          added={Boolean(itemsInCart[block.id])}
+          key={i}
+          block={block}
+          setItemsInCart={setItemsInCart}
+        />
+      ))}
     </div>
   );
 };
