@@ -1,5 +1,7 @@
-import type { Blocks } from "../App";
+import type { Block, Blocks, ItemsInCart } from "../App";
 
 export interface BlocksListProps {
-  blocks: Blocks
+  blocks: Blocks;
+  itemsInCart: ItemsInCart;
+  setItemsInCart: (block: Block, added: boolean) => void
 }

@@ -41,3 +41,7 @@ export type Block = {
  *
  */
 export type Blocks = Block[];
+
+export interface ItemsInCart {
+  [id: string]: Block
+};

@@ -1,4 +1,7 @@
 import React from "react";
+import Block from "../Block";
+
+import useStyles from "./BlocksList.styles";
 
 import type { BlocksListProps } from "./BlocksList.types";
 
@@ -6,9 +9,15 @@ import type { BlocksListProps } from "./BlocksList.types";
  *
  */
 const BlocksList = (props: BlocksListProps): JSX.Element => {
-  const { blocks } = props;
+  const { blocks, itemsInCart, setItemsInCart } = props;
 
-  return <div>hi! (but with blocks)</div>;
+  const classes = useStyles();
+
+  return (
+    <div className={classes.blocksListWrapper}>
+      {blocks.map((block, i) => (<Block added={Boolean(itemsInCart[block.id])} key={i} block={block} setItemsInCart={setItemsInCart} />))}
+    </div>
+  );
 };
 
 export default BlocksList;

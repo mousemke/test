@@ -1,5 +1,5 @@
 import App from "./App";
 
-export type { Block, Blocks } from "./App.types";
+export type { Block, Blocks, ItemsInCart } from "./App.types";
 
 export default App;
