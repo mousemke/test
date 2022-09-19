@@ -30,7 +30,7 @@ app.get("/blocks", (req, res) => {
   );
 });
 
-app.use(express.static(path.join(dirname, "dist")));
+app.use(express.static(dirname));
 
 const PORT = process.env.PORT || 3000;
 // eslint-disable-next-line no-console
