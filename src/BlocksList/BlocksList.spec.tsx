@@ -5,8 +5,8 @@ import BlocksList from "./BlocksList";
 
 import type { Block, Blocks } from "../App";
 
-jest.mock("../Block", () =>
-  jest.fn().mockImplementation(() => <div>Block</div>)
+jest.mock("../SingleBlock", () =>
+  jest.fn().mockImplementation(() => <div>SingleBlock</div>)
 );
 
 describe("BlocksList", () => {
@@ -18,6 +18,6 @@ describe("BlocksList", () => {
       <BlocksList blocks={blocks} itemsInCart={{}} setItemsInCart={jest.fn()} />
     );
 
-    expect(queryAllByText("Block").length).toBe(3);
+    expect(queryAllByText("SingleBlock").length).toBe(3);
   });
 });

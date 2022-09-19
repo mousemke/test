@@ -1,5 +1,5 @@
 import React from "react";
-import Block from "../Block";
+import SingleBlock from "../SingleBlock";
 
 import useStyles from "./BlocksList.styles";
 
@@ -16,7 +16,7 @@ const BlocksList = (props: BlocksListProps): JSX.Element => {
   return (
     <div className={classes.blocksListWrapper}>
       {blocks.map((block, i) => (
-        <Block
+        <SingleBlock
           added={Boolean(itemsInCart[block.id])}
           key={i}
           block={block}

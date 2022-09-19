@@ -3,14 +3,14 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import useStyles from "./Block.styles";
+import useStyles from "./SingleBlock.styles";
 
-import type { BlockProps } from "./Block.types";
+import type { SingleBlockProps } from "./SingleBlock.types";
 
 /**
  *
  */
-const Block = (props: BlockProps): JSX.Element => {
+const SingleBlock = (props: SingleBlockProps): JSX.Element => {
   const { added, block, setItemsInCart } = props;
   const { displayName, metadata } = block;
 
@@ -37,4 +37,4 @@ const Block = (props: BlockProps): JSX.Element => {
   );
 };
 
-export default Block;
+export default SingleBlock;

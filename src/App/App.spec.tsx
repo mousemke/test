@@ -100,7 +100,7 @@ describe("buyBlocks", () => {
 
     render(<App />);
 
-    const buyBlocks = (Cart as jest.Mock).mock.calls[0][0].buyBlocks;
+    const { buyBlocks } = (Cart as jest.Mock).mock.calls[0][0];
 
     buyBlocks(90);
 
@@ -125,8 +125,7 @@ describe("setItemsInCart", () => {
 
     render(<App />);
 
-    const setItemsInCart = (BlocksList as jest.Mock).mock.calls[0][0]
-      .setItemsInCart;
+    const { setItemsInCart } = (BlocksList as jest.Mock).mock.calls[0][0];
 
     const addedItem = { id: "666" };
 
@@ -151,8 +150,7 @@ describe("setItemsInCart", () => {
 
     render(<App />);
 
-    const setItemsInCart = (BlocksList as jest.Mock).mock.calls[0][0]
-      .setItemsInCart;
+    const { setItemsInCart } = (BlocksList as jest.Mock).mock.calls[0][0];
 
     setItemsInCart(addedItem, true);
 

@@ -88,7 +88,6 @@ const App = (): JSX.Element => {
           buyBlocks={buyBlocks}
           itemsInCart={itemsInCart}
           remainingCredits={remainingCredits}
-          setRemainingCredits={setRemainingCredits}
         />
       </div>
     </div>

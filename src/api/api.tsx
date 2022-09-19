@@ -9,25 +9,23 @@ export const getBlocks = async (
   setBlocks: React.Dispatch<React.SetStateAction<Blocks>>,
   setError: React.Dispatch<React.SetStateAction<string | null>>
 ) => {
-  const response = await fetch(`${window.location.href}blocks`).catch((err) =>
-    setError(err)
-  );
+  try {
+    const response = await fetch(`${window.location.href}blocks`);
 
-  if (response) {
-    try {
-      const res = await response.json();
+    const res = await response?.json();
 
-      if (res.error) {
-        setError(res.error);
-      } else {
-        const blocks = (res.data as Blocks).filter(
-          (b) => b.metadata.blockPricingStrategy.name === "simple"
-        );
-        setBlocks(blocks);
-      }
-    } catch (e: any) {
-      setError(e.message as string);
+    if (res.error) {
+      setError(res.error);
+    } else {
+      const blocks = (res.data as Blocks).filter(
+        (b) => b.metadata.blockPricingStrategy.name === "simple"
+      );
+      setBlocks(blocks);
     }
+    // JS errors actually can be anything but ts does not like it to be any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (e: any) {
+    setError(e.message as string);
   }
 };
 

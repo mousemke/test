@@ -27,7 +27,7 @@ const useStyles = createUseStyles(
     }
   },
   {
-    name: "Block"
+    name: "SingleBlock"
   }
 );
 
